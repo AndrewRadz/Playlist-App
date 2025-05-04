@@ -82,6 +82,7 @@ export class MainPage {
 
   async assertNameOfFirstTrackInPlaylist() {
     // Check if the name of the first track in the playlist is present
+    await this.yourPlaylistSection.waitFor({ state: 'visible', timeout: 10000 });
     const nameOfFirstTrack = await this.firstTrackInList.innerText();
     expect(this.yourPlaylistSection).toContainText(nameOfFirstTrack);
   }
